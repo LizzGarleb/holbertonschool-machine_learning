@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
+
 """
-matrix_shape - Calculates the shape of a matrix
+Module contains matrix_shape()
+ - matrix_shape: Calculates the shape of a matrix
 """
+
+
 def matrix_shape(matrix):
+    """matrix_shape - Calculates the shape of a matrix"""
     shape = []
     while isinstance(matrix, list):
         shape.append(len(matrix))
