@@ -16,8 +16,9 @@ def add_matrices2D(mat1, mat2):
         Return: Upon success returns a new matrix with the sum,
                 otherwise None
     """
-
-    if matrix_shape(mat1) == matrix_shape(mat2):
+    size1 = matrix_shape(mat1) 
+    size2 = matrix_shape(mat2)
+    if size1 == size2:
         return [[mat1[i][j] + mat2[i][j] for j in range(len(mat1[i]))]
                 for i in range(len(mat1))]
     return None
