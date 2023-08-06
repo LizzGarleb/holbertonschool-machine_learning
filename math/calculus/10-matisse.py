@@ -12,14 +12,16 @@ def poly_derivative(poly):
 
         @poly: List of coefficients representing a polynomial
     """
-    if not isinstance(poly, list) or len(poly) < 1:
+    if not isinstance(poly, list) or len(poly) == 0:
         return None
+    
+    if len(poly) == 1:
+        return [0]
 
     derivative = []
-    for i in range(len(poly) - 1):
-        derivative.append(poly[i] * (i + 1))
-
-    if len(derivative) == 1 and derivative[0] == 0:
-        return [0]
+    for i in range(1, len(poly)):
+        if type(poly[i]) is not int:
+            return None
+        derivative.append(poly[i] * (i))
 
     return derivative
