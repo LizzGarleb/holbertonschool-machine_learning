@@ -13,6 +13,8 @@ class Poisson:
             - pmf(self, k): Calculate the value of the PMF for a given
                             number of "successes"
                     Returns: the PMF value of k
+            - cdf(self, k): Calculate the value of the CDF for a given
+                            number of "successes"
     """
 
     def __init__(self, data=None, lambtha=1.):
@@ -64,3 +66,21 @@ class Poisson:
         for i in range(1, k + 1):
             fact *= i
         return (lambtha ** k / (e ** lambtha * fact))
+
+    def cdf(self, k):
+        """
+            cdf: Calculate the value of the CDF for a given number of
+            "successes"
+
+            @k: is the number of "successes"
+
+            Return: the CDF value for k
+        """
+        if not isinstance(k, int):
+            k = int(k)
+        if k < 0:
+            return 0
+        cdf = 0
+        for i in range(k + 1):
+            cdf += self.pmf(i)
+        return cdf
