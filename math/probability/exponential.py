@@ -4,6 +4,7 @@
         - A Exponential class that represent an exponential distribution.
 """
 
+
 class Exponential:
 
     """
