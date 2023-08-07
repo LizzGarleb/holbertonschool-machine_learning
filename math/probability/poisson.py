@@ -10,8 +10,8 @@ class Poisson:
     """
         Functions:
             - __init__(self, data=None, lambtha=1.): Class constructor
-            - pmd: Calculate the value of the PMF for a given number of
-                    "successes"
+            - pmf(self, k): Calculate the value of the PMF for a given 
+                            number of "successes"
                     Returns: the PMF value of k
     """
 
@@ -38,3 +38,29 @@ class Poisson:
             if lambtha <= 0:
                 raise ValueError("lambtha must be a positive value")
             self.lambtha = float(lambtha)
+
+    def pmf(self, k):
+        """
+            pmf: Calculates the value of the PMF for a given number of
+            "successes"
+
+            @k: the number of "successes"
+            @e: Euler's number
+            @fact: factorial number of k
+            @lambtha: expected number of occurences in a given time frame
+
+
+            Returns: the PMF value for k
+        """
+
+        e = 2.7182818285
+        fact = 1
+        lambtha = self.lambtha
+
+        if not isinstance(k, int):
+            k = int(k)
+        if k < 0:
+            return 0
+        for i in range(1, k + 1):
+            fact *= i
+        return (lambtha ** k / (e ** lambtha * fact))
