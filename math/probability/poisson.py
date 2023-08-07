@@ -10,7 +10,7 @@ class Poisson:
     """
         Functions:
             - __init__(self, data=None, lambtha=1.): Class constructor
-            - pmf(self, k): Calculate the value of the PMF for a given 
+            - pmf(self, k): Calculate the value of the PMF for a given
                             number of "successes"
                     Returns: the PMF value of k
     """
