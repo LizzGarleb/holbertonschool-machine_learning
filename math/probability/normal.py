@@ -59,3 +59,20 @@ class Normal:
             Return: the x-value of z
         """
         return ((z * self.stddev) + self.mean)
+
+    def pdf(self, x):
+        """
+            pmf: Calculates the value of the PMF for a given number of
+            "successes"
+
+            @pi: Pi Value
+            @e: Euler's number
+
+            Returns: the PMF value for x
+        """
+        e = 2.7182818285
+        pi = 3.1415926536
+        mean = self.mean
+        stddev = self.stddev
+        return ((1 / (stddev * (2 * pi) ** (1 / 2))) * e ** (
+            (-1 / 2) * ((x - mean) / stddev) ** 2))
