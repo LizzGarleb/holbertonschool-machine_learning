@@ -53,13 +53,8 @@ class Exponential:
             Returns: the PMF value for k
         """
         e = 2.7182818285
-        fact = 1
         lambtha = self.lambtha
 
-        if not isinstance(x, int):
-            x = int(x)
         if x < 0:
             return 0
-        for i in range(1, x + 1):
-            fact *= i
-        return (lambtha ** x / (e ** lambtha * fact))
+        return (lambtha *  (e ** (-lambtha * x)))
