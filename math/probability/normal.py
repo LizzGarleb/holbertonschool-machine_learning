@@ -9,6 +9,10 @@ class Normal:
 
     """
         Functions:
+            - __init__: Class constructor
+            - z_score(self, x): Calculates the z-score of a given x-value
+                Return: the z-score of x
+            - x_value(self, z): Calculates the x-value of a given z-score
     """
 
     def __init__(self, data=None, mean=0., stddev=1.):
@@ -35,3 +39,23 @@ class Normal:
                 x = (data[i] - self.mean) ** 2
                 sigma += x
             self.stddev = (sigma / len(data)) ** (1 / 2)
+
+    def z_score(self, x):
+        """
+            z_score: Calculates the z-score of a given x-value
+
+            @x: is the x-value
+
+            Return: the z-score of x
+        """
+        return ((x - self.mean) / self.stddev)
+
+    def x_value(self, z):
+        """
+            x_value: Calculates the x-value of a given z-score
+
+            @z: is the z-score
+
+            Return: the x-value of z
+        """
+        return ((z * self.stddev) + self.mean)
