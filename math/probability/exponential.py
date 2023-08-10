@@ -46,11 +46,11 @@ class Exponential:
 
             @x: the number of "successes"
             @e: Euler's number
-            @fact: factorial number of k
+            @fact: factorial number of x
             @lambtha: expected number of occurences in a given time frame
 
 
-            Returns: the PMF value for k
+            Returns: the PMF value for x
         """
         e = 2.7182818285
         lambtha = self.lambtha
@@ -58,3 +58,19 @@ class Exponential:
         if x < 0:
             return 0
         return (lambtha * (e ** (-lambtha * x)))
+
+    def cdf(self, x):
+        """
+            cdf: Calculate the value of the CDF for a given number of
+            "successes"
+
+            @x: is the number of "successes"
+
+            Return: the CDF value for x
+        """
+        e = 2.7182818285
+        lambtha = self.lambtha
+
+        if x < 0:
+            return 0
+        return (1 - e ** (-lambtha * x))
