@@ -57,4 +57,4 @@ class Exponential:
 
         if x < 0:
             return 0
-        return (lambtha *  (e ** (-lambtha * x)))
+        return (lambtha * (e ** (-lambtha * x)))
