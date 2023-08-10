@@ -13,6 +13,10 @@ class Normal:
             - z_score(self, x): Calculates the z-score of a given x-value
                 Return: the z-score of x
             - x_value(self, z): Calculates the x-value of a given z-score
+            - pmf(self, x): Calculate the value of the PMF for a given
+                            number of "successes"
+            - cdf(self, x): Calculate the value of the CDF for a given
+                            number of "successes"
     """
 
     def __init__(self, data=None, mean=0., stddev=1.):
@@ -76,3 +80,21 @@ class Normal:
         stddev = self.stddev
         return ((1 / (stddev * (2 * pi) ** (1 / 2))) * e ** (
             (-1 / 2) * ((x - mean) / stddev) ** 2))
+
+    def cdf(self, x):
+        """
+            cdf: Calculate the value of the CDF for a given number of
+            "successes"
+
+            @x: is the number of "successes"
+
+            Return: the CDF value of x
+        """
+        pi = 3.1415926536
+        z = (x - self.mean) / self.stddev
+        ez = z / (2 ** (1 / 2))
+        erf = (2 / (pi ** (1 / 2))) * (ez - ((ez ** 3) / 3) +
+                                       ((ez ** 5) / 10) - ((ez ** 7) /
+                                                           42) + ((ez ** 9)
+                                                                  / 216))
+        return ((1 / 2) * (1 + erf))
