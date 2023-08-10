@@ -19,24 +19,19 @@ class Normal:
             @mean: is the mean of the distribution
             @stddev: is the standard deviation of the distribution
         """
-        self.stddev = stddev
-        if stddev <= 0:
-           raise ValueError("stddev must be a positive value") 
-
         if data is None:
+            if stddev <= 0:
+                raise ValueError("stddev must be a positive value")
             self.mean = float(mean)
             self.stddev = float(stddev)
         else:
             if not isinstance(data, list):
                 raise TypeError("data must be a list")
-            if len(data) < 2:
+            elif len(data) < 2:
                 raise ValueError("data must contain multiple values")
-            sum = 0
-            sum2 = 0
+            self.mean = sum(data) / len(data)
+            sigma = 0
             for i in range(0, len(data)):
-                sum += data[i]
-                sum2 += ((data[i] - mean) ** 2)
-            var = ((sum2 / len(data)) ** 0.5)
-            self.stddev = float(var)
-            mean = sum / len(data)
-        self.mean = float(mean)
+                x = (data[i] - self.mean) ** 2
+                sigma += x
+            self.stddev = (sigma / len(data)) ** (1 / 2)
