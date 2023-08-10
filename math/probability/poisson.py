@@ -15,6 +15,7 @@ class Poisson:
                     Returns: the PMF value of k
             - cdf(self, k): Calculate the value of the CDF for a given
                             number of "successes"
+                    Returns: the CMF value of k
     """
 
     def __init__(self, data=None, lambtha=1.):

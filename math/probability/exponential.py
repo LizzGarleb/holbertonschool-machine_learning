@@ -13,6 +13,9 @@ class Exponential:
             - pmf(self, x): Calculate the value of the PMF for a given
                             number of "successes"
                     Returns: the PMF value of x
+            - cdf(self, x): Calculate the value of the CDF for a given
+                            number of "successes"
+                    Returns: the CDF value of x
     """
 
     def __init__(self, data=None, lambtha=1.):
