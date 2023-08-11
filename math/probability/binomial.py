@@ -61,7 +61,7 @@ class Binomial:
 
         if k > self.n or k < 0:
             return 0
-        
+
         for num in range(1, k + 1):
             factor_k *= num
         for num in range(1, self.n + 1):
