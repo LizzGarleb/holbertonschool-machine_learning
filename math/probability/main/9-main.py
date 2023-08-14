@@ -10,3 +10,7 @@ print('PHI(90):', n1.cdf(90))
 
 n2 = Normal(mean=70, stddev=10)
 print('PHI(90):', n2.cdf(90))
+
+# Expected Output:
+# PHI(90): 0.982902011086006
+# PHI(90): 0.9922398930667251

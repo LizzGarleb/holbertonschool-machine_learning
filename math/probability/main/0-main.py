@@ -10,3 +10,7 @@ print('Lambtha:', p1.lambtha)
 
 p2 = Poisson(lambtha=5)
 print('Lambtha:', p2.lambtha)
+
+# Expected Result:
+# Lambtha: 4.84
+# Lambtha: 5.0

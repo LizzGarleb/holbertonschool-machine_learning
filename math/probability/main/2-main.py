@@ -10,3 +10,7 @@ print('F(9):', p1.cdf(9))
 
 p2 = Poisson(lambtha=5)
 print('F(9):', p2.cdf(9))
+
+# Expected Output:
+# F(9): 0.9736102067423525
+# F(9): 0.9681719426208609

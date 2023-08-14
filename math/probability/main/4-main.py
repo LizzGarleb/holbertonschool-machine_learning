@@ -10,3 +10,7 @@ print('f(1):', e1.pdf(1))
 
 e2 = Exponential(lambtha=2)
 print('f(1):', e2.pdf(1))
+
+# Expected Output:
+# f(1): 0.24681591903431568
+# f(1): 0.2706705664650693

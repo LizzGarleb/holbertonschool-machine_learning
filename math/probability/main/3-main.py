@@ -10,3 +10,7 @@ print('Lambtha:', e1.lambtha)
 
 e2 = Exponential(lambtha=2)
 print('Lambtha:', e2.lambtha)
+
+# Expected Output:
+# Lambtha: 2.1771114730906937
+# Lambtha: 2.0

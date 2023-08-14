@@ -10,3 +10,7 @@ print('F(1):', e1.cdf(1))
 
 e2 = Exponential(lambtha=2)
 print('F(1):', e2.cdf(1))
+
+# Expected Output:
+# F(1): 0.886631473819791
+# F(1): 0.8646647167674654

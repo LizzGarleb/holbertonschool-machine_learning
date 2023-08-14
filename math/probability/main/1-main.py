@@ -10,3 +10,7 @@ print('P(9):', p1.pmf(9))
 
 p2 = Poisson(lambtha=5)
 print('P(9):', p2.pmf(9))
+
+# Expected Output:
+# P(9): 0.03175849616802446
+# P(9): 0.036265577412911795
