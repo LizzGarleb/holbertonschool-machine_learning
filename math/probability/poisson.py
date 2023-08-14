@@ -66,7 +66,7 @@ class Poisson:
             return 0
         for i in range(1, k + 1):
             fact *= i
-        return (lambtha ** k / (e ** lambtha * fact))
+        return pow(lambtha, k) / pow(e, lambtha * fact)
 
     def cdf(self, k):
         """

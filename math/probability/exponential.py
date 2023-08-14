@@ -60,7 +60,7 @@ class Exponential:
 
         if x < 0:
             return 0
-        return (lambtha * (e ** (-lambtha * x)))
+        return (lambtha * pow(e, (-lambtha * x)))
 
     def cdf(self, x):
         """
@@ -76,4 +76,4 @@ class Exponential:
 
         if x < 0:
             return 0
-        return (1 - e ** (-lambtha * x))
+        return (1 - pow(e, (-lambtha * x)))

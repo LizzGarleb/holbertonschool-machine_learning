@@ -40,9 +40,9 @@ class Normal:
             self.mean = sum(data) / len(data)
             sigma = 0
             for i in range(0, len(data)):
-                x = (data[i] - self.mean) ** 2
+                x = pow((data[i] - self.mean), 2)
                 sigma += x
-            self.stddev = (sigma / len(data)) ** (1 / 2)
+            self.stddev = pow((sigma / len(data)), (1 / 2))
 
     def z_score(self, x):
         """
@@ -78,8 +78,8 @@ class Normal:
         pi = 3.1415926536
         mean = self.mean
         stddev = self.stddev
-        return ((1 / (stddev * (2 * pi) ** (1 / 2))) * e ** (
-            (-1 / 2) * ((x - mean) / stddev) ** 2))
+        return ((1 / pow(stddev * (2 * pi), (1 / 2))) *
+                pow((x - mean) / stddev, -2))
 
     def cdf(self, x):
         """
@@ -92,9 +92,9 @@ class Normal:
         """
         pi = 3.1415926536
         z = (x - self.mean) / self.stddev
-        ez = z / (2 ** (1 / 2))
-        erf = (2 / (pi ** (1 / 2))) * (ez - ((ez ** 3) / 3) +
-                                       ((ez ** 5) / 10) - ((ez ** 7) /
-                                                           42) + ((ez ** 9)
+        ez = z / pow(2, (1 / 2))
+        erf = (2 / pow(pi, (1 / 2))) * (ez - (pow(ez, 3) / 3) +
+                                       (pow(ez, 5) / 10) - (pow(ez, 7) /
+                                                           42) + (pow(ez, 9)
                                                                   / 216))
         return ((1 / 2) * (1 + erf))
