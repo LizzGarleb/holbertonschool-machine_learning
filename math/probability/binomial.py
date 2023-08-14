@@ -40,7 +40,7 @@ class Binomial:
 
             variance = 0
             for idx in range(len(data)):
-                variance += (data[idx] - mean) ** 2
+                variance += pow((data[idx] - mean), 2)
             variance = variance / len(data)
 
             self.p = 1 - (variance / mean)
@@ -70,7 +70,7 @@ class Binomial:
             factor_c *= num
 
         comb = factor_n / (factor_c * factor_k)
-        prob = (self.p ** k) * ((1 - self.p) ** (self.n - k))
+        prob = pow(self.p, k) * pow((1 - self.p), (self.n - k))
         return comb * prob
 
     def cdf(self, k):
