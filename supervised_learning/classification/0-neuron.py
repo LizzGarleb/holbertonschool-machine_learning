@@ -36,34 +36,6 @@ class Neuron:
         if nx < 1:
             raise ValueError("nx must be a positive integer")
 
-        self.__b = 0
-        self.__W = numpy.random.normal(size=nx)
-        self.__A = 0
-
-    @property
-    def W(self):
-        """
-            Getter function
-
-            Return: The weight vector for the neuron.
-        """
-        return self.__W
-    
-    @property
-    def b(self):
-        """
-            Getter function
-
-            Return: The bias for the neuron.
-        """
-        return self.__b
-    
-    @property
-    def A(self):
-        """
-            Getter function
-
-            Return: The activated output of the neuron (prediction).
-        """
-        return self.__A
-
+        self.b = 0
+        self.W = numpy.random.normal(size=nx)
+        self.A = 0
