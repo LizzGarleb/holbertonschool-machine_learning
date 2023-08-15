@@ -4,7 +4,7 @@
         - A Neuron class that defines a single neuron
         performing binary classification
 """
-import numpy
+import numpy as np
 
 
 class Neuron:
@@ -37,7 +37,7 @@ class Neuron:
             raise ValueError("nx must be a positive integer")
 
         self.__b = 0
-        self.__W = numpy.random.normal(size=nx)
+        self.__W = np.random.normal(size=nx)
         self.__A = 0
 
     @property
