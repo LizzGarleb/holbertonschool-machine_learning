@@ -8,6 +8,19 @@ import numpy as np
 
 
 class Neuron:
+    """
+        Defines a single neuron performing binary classification
+
+        Functions:
+            - def __init__(self, nx)
+            - def forward_prop(self, X)
+            - def cost(self, Y, A)
+
+        Getters:
+            - def W(self)
+            - def A(self)
+            - def b(self)
+    """
 
     def __init__(self, nx):
         """
