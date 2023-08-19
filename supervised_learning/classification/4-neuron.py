@@ -120,7 +120,6 @@ class Neuron:
                 @nx: is the number of input features to the neuron
                 @m: is the number of examples
             @Y: is a numpy.ndarray with shape (1, m) that contains the correct label
-                for the input data
                 @m: is the number of examples
 
             Return: The neuron's prediction and the cost of the network, respectively
@@ -129,8 +128,6 @@ class Neuron:
             predicted labels for each example. The label values should be 1 if the
             output of the network is >= 0.5 and 0 otherwise.
         """
-        # Computes the output of the neuron for each example in the input data because
-        # the neuron is a single neuron. 
         self.forward_prop(X)
 
         cost = self.cost(Y, self.__A)
