@@ -117,21 +117,19 @@ class Neuron:
         """
             Evaluate the neuron's predictions
 
-            @X: is a numpy.ndarray with shape (nx, m) that contains the input data
-                @nx: is the number of input features to the neuron
+            @X: is a np.ndarray with shape(nx, m) the input data
+                @nx: is the number of input features
                 @m: is the number of examples
-            @Y: is a numpy.ndarray with shape (1, m) that contains the correct label
-                for the input data
+            @Y: is a np.ndarray with shape(1, m) the correct label
                 @m: is the number of examples
 
-            Return: The neuron's prediction and the cost of the network, respectively
+            Return: The neuron's prediction and the cost of the network
 
-            The prediction should be a numpy.ndarray with shape (1, m) containing the
-            predicted labels for each example. The label values should be 1 if the
-            output of the network is >= 0.5 and 0 otherwise.
+            The prediction should be a numpy.ndarray with shape(1, m)
+            containing the predicted labels for each example. The
+            label values should be 1 if the output of the network
+            is >= 0.5 and 0 otherwise.
         """
-        # Computes the output of the neuron for each example in the input data because
-        # the neuron is a single neuron. 
         self.forward_prop(X)
 
         cost = self.cost(Y, self.__A)
@@ -142,13 +140,13 @@ class Neuron:
         """
             Calculates one pass of gradient descent on the neuron
 
-            @X is a numpy.ndarray with shape (nx, m) that contains the input data
+            @X is a numpy.ndarray with shape(nx, m) the input data
                 @nx: is the number of input features to the neuron
                 @m: is the number of examples
-             @Y: is a numpy.ndarray with shape (1, m) that contains the correct label
+             @Y: is a numpy.ndarray with shape (1, m) the correct label
                 for the input data
                 @m: is the number of examples
-            @A: is a numpy.ndarray with shape (1, m) containing the activated output
+            @A: is a numpy.ndarray with shape (1, m) the activated output
                 of the neuron for each example
             @alpha: is the learning rate
         """
