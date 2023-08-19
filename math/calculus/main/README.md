@@ -6,7 +6,7 @@ Holberton School Machine Learning
 |
 └── math
     ├── linear_algebra
-    |   └── main (You are here)
+    |    └── main
     │
     ├── plotting
     │
@@ -14,7 +14,7 @@ Holberton School Machine Learning
     │    └── main
     │
     └── calculus
-        └── main
+        └── main (You are here)
 ```
 
 ## Overview

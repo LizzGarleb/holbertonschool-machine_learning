@@ -11,9 +11,11 @@ Holberton School Machine Learning
     |   └── main
     │
     ├── plotting
-    │   └── main
     │
-    └── probability
+    ├── probability
+    │    └── main
+    │
+    └── calculus
         └── main
 ```
 

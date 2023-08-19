@@ -6,12 +6,12 @@ Holberton School Machine Learning
 |
 └── math
     ├── linear_algebra
-    |   └── main (You are here)
+    |   └── main
     │
     ├── plotting
     │
     ├── probability
-    │    └── main
+    │    └── main  (You are here)
     │
     └── calculus
         └── main
