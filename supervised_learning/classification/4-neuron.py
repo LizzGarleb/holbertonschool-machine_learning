@@ -116,17 +116,18 @@ class Neuron:
         """
             Evaluate the neuron's predictions
 
-            @X: is a numpy.ndarray with shape (nx, m) that contains the input data
-                @nx: is the number of input features to the neuron
+            @X: is a np.ndarray with shape(nx, m) the input data
+                @nx: is the number of input features
                 @m: is the number of examples
-            @Y: is a numpy.ndarray with shape (1, m) that contains the correct label
+            @Y: is a np.ndarray with shape(1, m) the correct label
                 @m: is the number of examples
 
-            Return: The neuron's prediction and the cost of the network, respectively
+            Return: The neuron's prediction and the cost of the network
 
-            The prediction should be a numpy.ndarray with shape (1, m) containing the
-            predicted labels for each example. The label values should be 1 if the
-            output of the network is >= 0.5 and 0 otherwise.
+            The prediction should be a numpy.ndarray with shape(1, m)
+            containing the predicted labels for each example. The
+            label values should be 1 if the output of the network
+            is >= 0.5 and 0 otherwise.
         """
         self.forward_prop(X)
 
