@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """
     Module Content:
-        - A Neuron class that defines a single neuron
+        - A Neural network with one hidden layer
         performing binary classification
 """
 import numpy as np
 
 
 class NeuralNetwork:
-
+    """
+        Neural network with one hidden layer performing binary
+        classification
+    """
     def __init__(self, nx, nodes):
         """
             __init__: class constructor
@@ -25,13 +28,13 @@ class NeuralNetwork:
         """
         if type(nx) is not int:
             raise TypeError("nx must be an integer")
-        if nx < 1: 
+        if nx < 1:
             raise ValueError("nx must be a positive integer")
         if type(nodes) is not int:
             raise TypeError("node must be a integer")
         if nodes < 1:
             raise ValueError("nodes must be a positive integer")
-        
+
         self.W1 = np.random.normal(size=(nodes, nx))
         self.b1 = np.zeros((nodes, 1))
         self.A1 = 0
