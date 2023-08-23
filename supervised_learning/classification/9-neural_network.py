@@ -8,7 +8,10 @@ import numpy as np
 
 
 class NeuralNetwork:
-
+    """
+        NeuralNetwork with one hidden layer performing binary
+        classification
+    """
     def __init__(self, nx, nodes):
         """
             __init__: class constructor
@@ -16,22 +19,16 @@ class NeuralNetwork:
             Input:
                 @nx: the number of input features
                 @nodes: the number of nodes found in the hidden layer
-
-            Raises:
-                TypeError:
-                ValueError:
-                TypeError:
-                ValueError:
         """
         if type(nx) is not int:
             raise TypeError("nx must be an integer")
-        if nx < 1: 
+        if nx < 1:
             raise ValueError("nx must be a positive integer")
         if type(nodes) is not int:
             raise TypeError("nodes must be a integer")
         if nodes < 1:
             raise ValueError("nodes must be a positive integer")
-        
+
         self.__W1 = np.random.normal(size=(nodes, nx))
         self.__b1 = np.zeros((nodes, 1))
         self.__A1 = 0
@@ -48,7 +45,7 @@ class NeuralNetwork:
             Return: the weight vector for the hidden layer
         """
         return self.__W1
-    
+
     @property
     def W2(self):
         """
@@ -57,7 +54,7 @@ class NeuralNetwork:
             Return: The weight vector for the output neuron
         """
         return self.__W2
-    
+
     @property
     def b1(self):
         """
@@ -66,7 +63,7 @@ class NeuralNetwork:
             Return: the bias for the hidden layer
         """
         return self.__b1
-    
+
     @property
     def b2(self):
         """
@@ -75,16 +72,16 @@ class NeuralNetwork:
             Return: the bias for the output neuron
         """
         return self.__b2
-    
+
     @property
     def A1(self):
-        """ 
+        """
             Getter function
 
             Return: the activated output for the hidden layer
         """
         return self.__A1
-    
+
     @property
     def A2(self):
         """
