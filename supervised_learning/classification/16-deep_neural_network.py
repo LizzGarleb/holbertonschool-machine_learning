@@ -14,6 +14,7 @@ class DeepNeuralNetwork:
     """
     def __init__(self, nx, layers):
         """
+            Class constructor
         """
         if type(nx) is not int:
             raise TypeError("nx must be an integer")
