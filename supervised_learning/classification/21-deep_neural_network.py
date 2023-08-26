@@ -83,6 +83,7 @@ class DeepNeuralNetwork:
         return pred, cost
 
     def gradient_descent(self, Y, cache, alpha=0.05):
+        """ Calculate Gradient descent """
         m = Y.shape[1]
         weights = self.__weights.copy()
         for layer in reversed(range(self.__L)):
