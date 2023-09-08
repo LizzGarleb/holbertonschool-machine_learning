@@ -1,25 +1,34 @@
 #!/usr/bin/env python3
 """
-module dropout_gradient_descent
+Conducts gradient descent using Dropout:
 """
 import numpy as np
 
 
 def dropout_gradient_descent(Y, weights, cache, alpha, keep_prob, L):
     """
-    updates the weights of a neural network with Dropout regularization using
-    gradient descent
+    a function that conducts gradient descent using dropout
     """
-    for i in range(L, 0, -1):
-        m = Y.shape[0]
-        weight = weights.copy()
-        A = cache["A" + str(i)]
-        DZ = A - Y
-        DZ = np.multiply(np.dot(weight["W" + str(i+1)].T, DZ),
-                         (1 - np.power(A, 2)))
-        DZ = (DZ * cache["D" + str(i)]) / keep_prob
-        DW = 1 / m * np.dot(DZ, cache["A" + str(i-1)].T)
-        DB = 1 / m * np.sum(DZ, axis=1, keepdims=True)
-        weights["W" + str(i)] = weight["W" + str(i)] - (alpha * DB)
-        weights["b" + str(i)] = weight["b" + str(i)] - (alpha * DB)
-    return weights
+    m = Y.shape[1]
+    for i in reversed(range(L)):
+        # create keys to access weights(W), biases(b) and store in cache
+        key_w = 'W' + str(i + 1)
+        key_b = 'b' + str(i + 1)
+        key_cache = 'A' + str(i + 1)
+        key_cache_dw = 'A' + str(i)
+        # Activation
+        A = cache[key_cache]
+        A_dw = cache[key_cache_dw]
+        if i == L - 1:
+            dz = A - Y
+            W = weights[key_w]
+        else:
+            da = 1 - (A * A)
+            dz = np.matmul(W.T, dz)
+            dz = dz * da * cache["D{}".format(i + 1)]
+            dz = dz / keep_prob
+            W = weights[key_w]
+        dw = np.matmul(A_dw, dz.T) / m
+        db = np.sum(dz, axis=1, keepdims=True) / m
+        weights[key_w] = weights[key_w] - alpha * dw.T
+        weights[key_b] = weights[key_b] - alpha * db
