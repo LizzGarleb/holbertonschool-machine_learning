@@ -4,9 +4,6 @@ function def np_slice(matrix, axes={})
 """
 
 
-import numpy as np
-
-
 def np_slice(matrix, axes={}):
     """slices a matrix along specific axes"""
     # Create a list of slices for each axis
