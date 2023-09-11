@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Sequential Module """
+""" Input Module """
 import tensorflow.keras as K
 
 
