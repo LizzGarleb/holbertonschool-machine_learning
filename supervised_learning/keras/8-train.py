@@ -33,4 +33,3 @@ def train_model(network, data, labels, batch_size, epochs,
                        callbacks=early_stopping_callback,
                        validation_data=validation_data,
                        verbose=verbose, shuffle=shuffle)
-
