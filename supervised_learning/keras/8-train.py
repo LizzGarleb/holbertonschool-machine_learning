@@ -9,21 +9,28 @@ def train_model(network, data, labels, batch_size, epochs,
                 decay_rate=1, save_best=False, filepath=None,
                 verbose=True, shuffle=False):
     """ trains a model using mini-batch gradient descent """
-    callbacks = []
+    early_stopping_callback = []
 
     def scheduler(epoch):
         return alpha / (1 + decay_rate * epoch)
-    
-    if validation_data:
-        if early_stopping:
-            callbacks.append(K.EarlyStopping(patience=patience))
-        if learning_rate_decay:
-            callbacks.append(K.LearningRateScheduler(scheduler, verbose=1))
-        if save_best and filepath:
-            callbacks.append(K.ModelCheckpoint(filepath, save_best_only=True))
 
-    return network.fit(data, labels, batch_size=batch_size, epochs=epochs,
-                       callbacks=callbacks,
-                       validation_data=validation_data, verbose=verbose,
-                       shuffle=shuffle)
+    if validation_data and early_stopping:
+        early_stopping_callback.append(
+            K.callbacks.EarlyStopping(patience=patience))
+
+    if validation_data and learning_rate_decay:
+        learning_rate_decay_callback = K.callbacks.LearningRateScheduler(
+            scheduler, verbose=1)
+        early_stopping_callback.append(learning_rate_decay_callback)
+
+    if save_best:
+        checkpoint = K.callbacks.ModelCheckpoint(filepath, save_best_only=True)
+        early_stopping_callback.append(checkpoint)
+
+    return network.fit(data, labels,
+                       batch_size=batch_size,
+                       epochs=epochs,
+                       callbacks=early_stopping_callback,
+                       validation_data=validation_data,
+                       verbose=verbose, shuffle=shuffle)
 
