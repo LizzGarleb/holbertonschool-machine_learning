@@ -10,8 +10,6 @@ def inception_network():
     """
     builds the inception network as described in Going Deeper with
     Convolutions(2014)
-    Returns:
-        keras model
     """
     X = K.Input(shape=(224, 224, 3))
     init = K.initializers.he_normal()
