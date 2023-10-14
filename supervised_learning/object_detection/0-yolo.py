@@ -5,7 +5,7 @@ import tensorflow.keras as K
 
 class Yolo:
     """
-        Class Yolo that uses the Yolo v3 algorithm to 
+        Class Yolo that uses the Yolo v3 algorithm to
         perform object detection
     """
 
