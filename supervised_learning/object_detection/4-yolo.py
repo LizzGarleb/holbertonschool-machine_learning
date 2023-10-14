@@ -89,7 +89,8 @@ class Yolo:
             f.append(filters)
             c.append(classes)
             s.append(scores)
-        return (np.concatenate(f, axis=0), np.concatenate(c, axis=0), np.concatenate(s, axis=0))
+        return (np.concatenate(f, axis=0), np.concatenate(c, axis=0),
+                np.concatenate(s, axis=0))
 
     def nms(self, boxes, thresh, scores):
         """ Compute the index of the bounding box """
