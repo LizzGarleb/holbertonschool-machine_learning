@@ -53,18 +53,19 @@ class Yolo:
 
     def filter_boxes(self, boxes, box_confidences, box_class_probs):
         """ Filter boxes """
-        box_scores = [box_confidences[i] * box_class_probs[i]
-                      for i in range(len(box_confidences))]
-        box_class_scores = [np.max(box_scores[i], axis=-1).reshape(-1)
-                            for i in range(len(box_scores))]
-        box_class_scores = np.concatenate(box_class_scores)
-        box_classes = [np.argmax(box_scores[i], axis=-1).reshape(-1)
-                       for i in range(len(box_scores))]
-        box_classes = np.concatenate(box_classes)
-        filtering_mask = box_class_scores >= self.class_t
-        scores = box_class_scores[filtering_mask]
-        classes = box_classes[filtering_mask]
-        boxes = [boxes[i][filtering_mask].reshape(-1, 4) for i in
-                 range(len(boxes))]
-        boxes = np.concatenate(boxes)
-        return (boxes, classes, scores)
+        box_score = []
+        bc = box_confidences
+        bcp = box_class_probs
+        for box_conf, box_probs in zip(bc, bcp):
+            score = (box_conf * box_probs)
+            box_score.append(score)
+        box_classes = [s.argmax(axis=-1) for s in box_score]
+        box_class_l = [b.reshape(-1) for b in box_classes]
+        box_classes = np.concatenate(box_class_l)
+        box_class_scores = [s.max(axis=-1) for s in box_score]
+        b_scores_l = [b.reshape(-1) for b in box_class_scores]
+        box_class_scores = np.concatenate(b_scores_l)
+        mask = np.where(box_class_scores >= self.class_t)
+        boxes_all = [b.reshape(-1, 4) for b in boxes]
+        boxes_all = np.concatenate(boxes_all)
+        return (boxes_all[mask], box_classes[mask], box_class_scores[mask])
