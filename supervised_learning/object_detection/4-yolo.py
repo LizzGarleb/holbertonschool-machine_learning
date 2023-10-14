@@ -113,6 +113,7 @@ class Yolo:
             order = order[inds + 1]
         return keep
 
+    @staticmethod
     def load_images(folder_path):
         """ Load images """
         images = []
