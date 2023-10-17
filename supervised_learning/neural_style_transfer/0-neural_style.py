@@ -18,17 +18,13 @@ class NST:
             Class constructor
         """
         if not isinstance(style_image, np.ndarray):
-            raise TypeError("style_image must be a numpy.ndarray with shape\
-                            (h, w, 3)")
+            raise TypeError("style_image must be a numpy.ndarray with shape (h, w, 3)")
         if style_image.ndim != 3 or style_image.shape[-1] != 3:
-            raise TypeError("style_image must be a numpy.ndarray with shape\
-                            (h, w, 3)")
+            raise TypeError("style_image must be a numpy.ndarray with shape (h, w, 3)")
         if not isinstance(content_image, np.ndarray):
-            raise TypeError("content_image must be a numpy.ndarray with shape\
-                            (h, w, 3)")
+            raise TypeError("content_image must be a numpy.ndarray with shape (h, w, 3)")
         if content_image.ndim != 3 or content_image.shape[-1] != 3:
-            raise TypeError("content_image must be a numpy.ndarray with shape\
-                            (h, w, 3)")
+            raise TypeError("content_image must be a numpy.ndarray with shape (h, w, 3)")
         if not isinstance(alpha, (int, float)) or alpha < 0:
             raise TypeError("alpha must be a non-negative number")
         if not isinstance(beta, (int, float)) or beta < 0:
@@ -47,11 +43,9 @@ class NST:
         its largest side is 512 pixels.
         """
         if not isinstance(image, np.ndarray):
-            raise TypeError("image must be a numpy.ndarray with shape\
-                            (h, w, 3)")
+            raise TypeError("image must be a numpy.ndarray with shape (h, w, 3)")
         if image.ndim != 3 or image.shape[-1] != 3:
-            raise TypeError("image must be a numpy.ndarray with shape\
-                            (h, w, 3)")
+            raise TypeError("image must be a numpy.ndarray with shape (h, w, 3)")
         max_dim = 512
         long_dim = max(image.shape[:-1])
         scale = max_dim / long_dim
