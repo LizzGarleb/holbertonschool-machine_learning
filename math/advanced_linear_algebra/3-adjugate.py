@@ -5,6 +5,7 @@ minor_val = __import__('1-minor').minor_val
 
 
 def adjugate(matrix):
+    """calculates the adjugate matrix of a matrix"""
     mat_l = len(matrix)
     range_mat_l = range(len(matrix))
 
