@@ -3,6 +3,7 @@
 
 minor_val = __import__('1-minor').minor_val
 
+
 def cofactor(matrix):
     """calculates the cofactor matrix of a matrix"""
     mat_l = len(matrix)
