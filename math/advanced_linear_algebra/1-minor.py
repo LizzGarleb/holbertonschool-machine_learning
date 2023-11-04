@@ -1,9 +1,22 @@
 #!/usr/bin/env python3
 """Minor"""
 
+determinant = __import__('0-determinant').determinant
+
+
+def minor_val(matrix, idx_r, idx_c):
+    """
+    Computes minor in each idx position of the given matrix
+    """
+    minor_mat = [rows[:idx_c] + rows[idx_c + 1:]
+                 for rows in (matrix[:idx_r] + matrix[idx_r + 1:])]
+    return determinant(minor_mat)
+
 
 def minor(matrix):
-    """calculates the minor matrix of a matrix"""
+    """
+    Compute the minor of a given matrix
+    """
     mat_l = len(matrix)
     range_mat_l = range(len(matrix))
 
@@ -24,8 +37,7 @@ def minor(matrix):
     for row in range_mat_l:
         minor_r = []
         for col in range_mat_l:
-            minor_c = [rows[:col] + rows[col + 1:]
-                 for rows in (matrix[:row] + matrix[row + 1:])] 
+            minor_c = minor_val(matrix, row, col)
             minor_r.append(minor_c)
         minor_values.append(minor_r)
     return minor_values
