@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+if __name__ == '__main__':
+    import numpy as np
+    mean_cov = __import__('0-mean_cov').mean_cov
+
+    np.random.seed(0)
+    X = np.random.multivariate_normal([12, 30, 10], [[36, -30, 15], [-30, 100, -20], [15, -20, 25]], 10000)
+    mean, cov = mean_cov(X)
+    print(mean)
+    print(cov)
+
+# Expected Output:
+# [[12.04341828 29.92870885 10.00515808]]
+# [[ 36.2007391  -29.79405239  15.37992641]
+#  [-29.79405239  97.77730626 -20.67970134]
+#  [ 15.37992641 -20.67970134  24.93956823]]
