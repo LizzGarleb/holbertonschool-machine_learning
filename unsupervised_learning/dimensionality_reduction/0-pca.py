@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
-""" PCA"""
+""" Module PCA """
 import numpy as np
 
 
 def pca(X, var=0.95):
     """
-      Perform PCA on a dataset.
+      Perform PCA on a dataset
+      Args:
+        X (ndarray): contains dataset
+        var (float, optional): fraction of the variance. Defaults to 0.95.
+      Returns:
+          weights matrix
     """
     u, Sigma, vh = np.linalg.svd(X, full_matrices=False)
     cumulative_var = np.cumsum(Sigma) / np.sum(Sigma)
