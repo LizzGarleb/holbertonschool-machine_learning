@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Clustering"""
+""" Module Initialize Clustering"""
 
 import numpy as np
 
