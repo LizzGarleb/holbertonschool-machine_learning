@@ -8,19 +8,18 @@ def absorbing(P):
     """
       Determine if a markov chain is absorbing.
     """
-    if len(P.shape) != 2:
+    if ((type(P) is not np.ndarray or P.ndim != 2 or
+         P.shape[0] != P.shape[1] or np.any(P < 0)
+         or not np.all(np.isclose(P.sum(axis=1), 1)))):
         return None
-    n1, n2 = P.shape
-    if (n1 != n2) or type(P) is not np.ndarray:
-        return None
-    D = np.diagonal(P)
-    if (D == 1).all():
-        return True
-    if not (D == 1).any():
-        return False
-    for i in range(n1):
-        for j in range(n2):
-            if (i == j) and (i + 1 < len(P)):
-                if P[i + 1][j] == 0 and P[i][j + 1] == 0:
-                    return False
-    return True
+    P = P.copy()
+    absorbers = np.ndarray(P.shape[0])
+    while True:
+        prev = absorbers.copy()
+        absorbers = np.any(P == 1, axis=0)
+        if absorbers.all():
+            return True
+        if np.all(absorbers == prev):
+            return False
+        absorbed = np.any(P[:, absorbers], axis=1)
+        P[absorbed, absorbed] = 1
