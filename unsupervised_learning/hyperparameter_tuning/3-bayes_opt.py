@@ -6,7 +6,7 @@ GP = __import__('2-gp').GaussianProcess
 
 
 class BayesianOptimization:
-    """ 
+    """
       Perform Bayesian optimization
       on a noiseless 1D Gaussian process
     """
