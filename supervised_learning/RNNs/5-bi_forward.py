@@ -11,7 +11,7 @@ class BidirectionalCell:
 
     def __init__(self, i, h, o):
         """
-          
+          Class constructor
         """
         self.Whf = np.random.normal(size=(i + h, h))
         self.Whb = np.random.normal(size=(i + h, h))
