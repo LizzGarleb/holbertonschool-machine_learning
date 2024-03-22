@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-"""Module schools_by_topic."""
+"""
+    Module schools_by_topic
+"""
 
 
 def schools_by_topic(mongo_collection, topic):
     """
-    List of school having a specific topic.
-
-    Args:
-        mongo_collection (obj): pymongo collection object
-        topic (str): topic searched
+        List of school having a specific topic.
     """
     schools = []
     documents = mongo_collection.find({'topics': {'$all': [topic]}})
